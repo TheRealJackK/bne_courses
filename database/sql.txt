@@ -1,0 +1,70 @@
+CREATE TABLE users (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255),
+    s_number VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    user_type ENUM('student', 'teacher') NOT NULL,
+    created_at TIMESTAMP NULL,
+    updated_at TIMESTAMP NULL
+);
+CREATE TABLE courses (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    course_code VARCHAR(255) UNIQUE NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NULL,
+    updated_at TIMESTAMP NULL
+);
+CREATE TABLE enrollments (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT UNSIGNED NOT NULL,
+    course_id BIGINT UNSIGNED NOT NULL,
+    role ENUM('student', 'teacher') NOT NULL,
+    created_at TIMESTAMP NULL,
+    updated_at TIMESTAMP NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE
+);
+CREATE TABLE assessments (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    course_id BIGINT UNSIGNED NOT NULL,
+    title VARCHAR(20) NOT NULL,
+    instruction TEXT NOT NULL,
+    reviews_required INT NOT NULL,
+    max_score INT CHECK (max_score BETWEEN 1 AND 100),
+    due_date DATETIME NOT NULL,
+    type ENUM('student-select', 'teacher-assign') NOT NULL,
+    created_at TIMESTAMP NULL,
+    updated_at TIMESTAMP NULL,
+    FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE
+);
+CREATE TABLE reviews (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    assessment_id BIGINT UNSIGNED NOT NULL,
+    reviewer_id BIGINT UNSIGNED NOT NULL,
+    reviewee_id BIGINT UNSIGNED NOT NULL,
+    review_text TEXT NOT NULL,
+    rating INT CHECK (rating BETWEEN 1 AND 5),
+    score INT DEFAULT NULL,
+    created_at TIMESTAMP NULL,
+    updated_at TIMESTAMP NULL,
+    FOREIGN KEY (assessment_id) REFERENCES assessments(id) ON DELETE CASCADE,
+    FOREIGN KEY (reviewer_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (reviewee_id) REFERENCES users(id) ON DELETE CASCADE
+);
+CREATE TABLE groups (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    assessment_id BIGINT UNSIGNED NOT NULL,
+    created_at TIMESTAMP NULL,
+    updated_at TIMESTAMP NULL,
+    FOREIGN KEY (assessment_id) REFERENCES assessments(id) ON DELETE CASCADE
+);
+CREATE TABLE group_student (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    group_id BIGINT UNSIGNED NOT NULL,
+    student_id BIGINT UNSIGNED NOT NULL,
+    created_at TIMESTAMP NULL,
+    updated_at TIMESTAMP NULL,
+    FOREIGN KEY (group_id) REFERENCES groups(id) ON DELETE CASCADE,
+    FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE
+);

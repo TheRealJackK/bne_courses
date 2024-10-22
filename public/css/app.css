@@ -1,0 +1,531 @@
+/* Font's */
+@import url('https://fonts.googleapis.com/css2?family=Jost&family=Roboto&display=swap');
+
+/*
+Colours
+
+Header, Footer, Cards - #ffffff
+Main, Section, Article - #f2f2f2
+H1, Link - #006bb4
+H2, Link(Active) - #fed420
+H3, Link(Hover, Visited) - #009b57
+*/
+
+body {
+    background: url(https://nceptior.sirv.com/course-enroller/library.jpg);
+    margin: 0;
+    /* background-color: #f2f2f2; */
+}
+
+h1 {
+    font-family: 'Jost', sans-serif;
+    color: #006bb4;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Jost', sans-serif;
+    color: #006bb4;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Jost', sans-serif;
+    color: #009b57;
+    text-align: center;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+/* Header & Footer Styling */
+
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    text-align: center;
+    background: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.1em;
+}
+
+header > nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: auto;
+    border-top: 4px solid #009b57;
+    max-width: 80%;
+}
+
+header > nav > p {
+    color: #006bb4;
+}
+
+header > nav > a {
+    color: #006bb4;
+    position: relative;
+    width: 15%;
+    text-decoration: none;
+    transition: 500ms;
+    z-index: 1;
+    cursor: pointer;
+}
+
+header > nav > a:hover {
+    transform: scale(1.1, 1.1);
+    text-decoration: underline;
+}
+
+header > nav > a:visited {
+    color: #fed420;
+}
+
+header > div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    max-width: 80%;
+}
+
+#hamburger-container {
+    display: none;
+}
+
+#hamburger-container > #hamburger-links {
+    margin-right: 2.5em;
+    margin-top: -1em;
+    margin-bottom: -0.5em;
+    display: none;
+    text-decoration: none;
+    list-style: none;
+    transition: 500ms;
+}
+
+#hamburger-container:hover > #hamburger-links {
+    display: block;
+}
+
+
+#email::before {
+    content: "enquiries";
+}
+
+#email::after {
+    content: "bnecourses.gov.au";
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    background: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 18px, rgba(0, 0, 0, 0.23) 0px 3px 18px;
+}
+
+footer > h1 {
+    padding-top: 1em;
+}
+
+footer > div {
+    width: 0px;
+    height: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border: 2px solid #009b57;
+}
+
+footer > span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding-top: 0.5em;
+    max-width: 80%;
+}
+
+footer > span > a {
+    color: #006bb4;
+    text-decoration: none;
+    transition: 500ms;
+    cursor: pointer;
+}
+
+footer > span > a:hover {
+    transform: scale(1.1, 1.1);
+    text-decoration: underline;
+}
+
+/* Page Styling */
+
+main {
+    background: rgba(242, 242, 242, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 80%;
+    text-align: center;
+    border-bottom: solid 4px #009b57;
+    padding-bottom: 1em;
+}
+
+main h2 {
+    font-size: 2.5rem;
+    margin-top: 250px;
+    width: fit-content;
+}
+
+main a {
+  color: #009b57;  
+}
+
+main div > img {
+    border-radius: 4px;
+    margin: 2em
+}
+
+/* Card Styling */
+
+.card-group {
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-group > a {
+    text-decoration: none;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f2f2f2;
+    width: 20%;
+    height: 50%; 
+    margin: 1em 3em 0em 3em;
+    padding: 0.5em;
+    border: 4px solid #009b57;
+    border-radius: 10px;
+    box-shadow: rgba(82, 78, 78, 0.6) 0px 5px 15px;
+    transition: 500ms;
+}
+
+.card:hover {
+    transform: scale(1.02, 1.02);
+}
+
+.card > img {
+    /* border: 2px solid #009b57; */
+    border-radius: 10px;
+    margin: 1em;
+}
+
+.card > h3 {
+    max-width: 20em;
+    font-size: 1.25rem;
+}
+
+.card > p {
+    max-width: 20em;
+}
+
+.card > .card-button {
+    margin: 1em;
+    border: 2px solid #009b57;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    color: #006bb4;
+    text-align: center;
+}
+
+.card > a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.card > a > p {
+    font-size: 1.25em;
+    color: #006bb4;
+}
+
+a > .card > p {
+    color: black;
+}
+
+.star-rating {
+    display: flex;
+    gap: 2px;
+    color: #fed420;
+}
+
+.icon {
+    width: 5em;
+}
+
+/* Form Styling */
+
+form {
+    width: 50%;
+    margin: 1em;
+    margin-bottom: 3em;
+    padding: 1em;
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 5px 15px;
+}
+
+form > fieldset {
+    display: flex;
+    flex-direction: column;
+    border: 4px solid #009b57;
+    border-radius: 4px;
+}
+
+form > fieldset > legend {
+    font-family: 'Jost', sans-serif;
+    font-size: xx-large;
+    color: #009b57;
+}
+
+form > fieldset > label {
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    color: #009b57;
+    font-size: 1em;
+    text-align: left;
+}
+
+form > fieldset > input {
+    border: 4px solid #009b57;
+    border-radius: 4px;
+    color: #009b57;
+    background: #f2f2f2;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
+form > fieldset > select {
+    border: 4px solid #009b57;
+    border-radius: 4px;
+    color: #009b57;
+    background: #f2f2f2;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
+form > fieldset > textarea {
+    border: 4px solid #009b57;
+    border-radius: 4px;
+    color: #009b57;
+    background: #f2f2f2;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
+#submit {
+    margin-top: 1em;
+    cursor: pointer;
+    color: #009b57;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    transition: 500ms;
+}
+
+#submit:hover {
+    transform: scale(1.01, 1.01);
+    color: #009b57;
+}
+
+#honeypot {
+    display: none;
+}
+
+/* Table Styling */
+
+table {
+    background: #f2f2f2;
+    margin: 1em;
+    padding: 1em;
+    width: 80%;
+    border: 4px solid #009b57;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 5px 15px;
+}
+
+th {
+    border: 4px solid #009b57;
+    border-radius: 10px;
+}
+
+td {
+    margin: 1em;
+    border: 4px solid #009b57;
+    border-radius: 10px;
+}
+
+#largescreen {
+    display: none;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 600px) {
+
+    header h1 {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    header h2 {
+        font-size: 1rem;
+    }
+
+    header img {
+        display: none;
+    }
+
+    header > nav {
+        display: none;
+    }
+
+    main h2 {
+        margin-top: 125px;
+    }
+
+    main > div {
+        padding-bottom: 1em;
+    }
+
+    main > div > img {
+        width: 80%;
+    }
+
+    footer {
+        display: none;
+    }
+
+    .card-group {
+        width: 100%;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .card img {
+        justify-content: center;
+        align-items: center;
+        width: 7em;
+    }
+
+    form {
+        width: 100%;
+        margin-bottom: 4.6em;
+    }
+
+    form > fieldset > legend {
+        font-size: x-large;
+    }
+
+    form > fieldset > input {
+        width: 95%;
+    }
+
+    form > fieldset > select {
+        width: 100%;
+    }
+
+    form > fieldset > textarea {
+        width: 95%;
+    }
+
+    #hamburger-container {
+        display: flex;
+        flex-direction: column;
+        border-top: 4px solid #009b57;
+    }
+
+    #hamburger-container > #hamburger-icon {
+        display: block;
+    }
+
+    #hamburger-container p {
+        color: #006bb4;
+    }
+
+    #hamburger-container a {
+        text-decoration: none;
+    }
+
+    #hamburger-container a:hover {
+        text-decoration: underline;
+    }
+
+    #hamburger-container a:visited p {
+        color: #fed420
+    }
+
+    #submit {
+        width: 100%;
+        height: 2em;
+    }
+}
+
+/* Larger Screen */
+
+@media screen and (min-width: 2000px) {
+    body {
+        background: url(https://nceptior.sirv.com/course-enroller/library.jpg);
+    }
+
+    .card-group {
+        padding-top: 5em;
+        padding-bottom: 5em;
+    }
+
+    main > div {
+        padding-bottom: 5em;
+    }
+
+    main h2 {
+        padding-bottom: 1em;
+    }
+
+    form {
+        height: 30em;
+    }
+
+    form > fieldset > textarea {
+        padding-bottom: 9em;
+    }
+
+    #smallscreen {
+        display: none;
+    }
+
+    #largescreen {
+        display: block
+    }
+}
